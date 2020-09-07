@@ -1,0 +1,27 @@
+logging:
+  level:
+    com.lianxi.dao: debug # 配置日志
+spring:
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/mybatis?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+  #指定数据库提供商
+    database: mysql
+    #打印SQL
+    show-sql: true
+    #是jpa层面对数据表生成策略的控制
+    generate-ddl: true
+    hibernate:
+      #是jpa实现hibernate层面上对数据表生成策略的控制
+      #如果表不在就创建表；如果表在了：再实体类有没有修改操作，如果有就更新表结构，如果没有就什么都不做。
+      ddl-auto: update
+      #指定命名策略
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  main:
+    allow-bean-definition-overriding: true
+#服务器端口号更改
+server:
+  port: 18081
